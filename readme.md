@@ -12,7 +12,7 @@ This project contains **two Laravel 12 applications** working together to secure
 ```
 laravel-secure-audit-logger/
 ├── main-service/         # User system (emits logs)
-└── audit-service/    # Audit system (receives logs)
+└── audit-service/        # Audit system (receives logs)
 ```
 
 ---
@@ -94,11 +94,27 @@ php artisan serve --port=8001
 
 ## 🔐 Security Measures
 
-- ✅ JWT signed with HS256 and shared secret key.
-- ✅ JWT includes expiration (`exp`) and issued-at (`iat`) time.
-- ✅ Validates `iss` claim (issuer).
-- ✅ Validates source IP (`MAIN_APP_IP`).
-- ✅ Token expires after 1 minute.
+- ✅ JWT signed with **HS256** and shared secret key.
+- ✅ JWT includes **expiration (`exp`)** and **issued-at (`iat`)** time.
+- ✅ Validates **`iss` claim** (issuer).
+- ✅ Validates **source IP** (`MAIN_APP_IP`).
+- ✅ Token expires after **1 minute**.
+
+---
+
+## 🔁 Planned Upgrade: RS256 Key-Pair Support
+
+A command is planned to generate **RSA key pairs**:
+
+```bash
+php artisan jwt:generate-keys
+```
+
+This will produce:
+- `storage/app/keys/private.key`
+- `storage/app/keys/public.key`
+
+These can be used with **RS256** for enhanced security.
 
 ---
 
@@ -145,3 +161,4 @@ php artisan serve --port=8001
 ---
 
 Built with ❤️ by Sai Nay Lin Thar
+

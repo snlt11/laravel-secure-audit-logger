@@ -44,7 +44,8 @@ class AuditLogController extends Controller
 
     private function decodeToken(string $token)
     {
-        return JWT::decode($token, new Key(env('AUDIT_SECRET_KEY'), 'HS256'));
+        $publicKey = file_get_contents(storage_path('app/keys/public.key'));
+        return JWT::decode($token, new Key($publicKey, 'RS256'));
     }
 
     private function isValidIssuer($decoded): bool

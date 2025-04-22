@@ -36,7 +36,9 @@ class SendAuditLog
             'iss' => env('AUDIT_APP_NAME')
         ];
 
-        $jwt = JWT::encode($payload, env('AUDIT_SECRET_KEY'), 'HS256');
+        $privateKey = file_get_contents(storage_path('app/keys/private.key'));
+
+        $jwt = JWT::encode($payload, $privateKey, 'RS256');
 
         Http::withToken($jwt)->post(env('AUDIT_API_URL'), $payload);
     }
