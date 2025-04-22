@@ -102,7 +102,7 @@ php artisan serve --port=8001
 
 ---
 
-## 🔁 Planned Upgrade: RS256 Key-Pair Support
+## 🔁 Upgraded: RS256 Key-Pair Support
 
 A command is planned to generate **RSA key pairs**:
 
