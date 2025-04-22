@@ -32,7 +32,7 @@ laravel-secure-audit-logger/
 ### 1. Clone the Repo
 
 ```bash
-git clone https://your-repo-url.git
+git clone https://github.com/snlt11/laravel-secure-audit-logger
 cd laravel-secure-audit-logger
 ```
 
